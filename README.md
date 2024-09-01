@@ -44,8 +44,10 @@ python3 main.py  --end_page 20
 --skip_imgs — не скачивать картинки
 --skip_txt — не скачивать книги
 ```
-Пример работы приложения:
+Примеры работы приложения:
 ![image](https://github.com/user-attachments/assets/56f09a55-c755-4063-8ed2-93bb69709433)
+
+![image](https://github.com/user-attachments/assets/2f4c4c66-938d-408b-ba16-2adbaecd6713)
 
 ### Цель проекта
 
