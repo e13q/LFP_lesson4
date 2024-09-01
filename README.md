@@ -34,7 +34,7 @@ python3 main.py  --start_page 1 --end_page 1
 python3 main.py  --start_page 3
 ```
 ```
-№ С первой страницы по 20
+# С первой страницы по 20
 python3 main.py  --end_page 20
 ```
 Также, присутствуют другие параметры запуска:
