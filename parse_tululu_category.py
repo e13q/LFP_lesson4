@@ -6,8 +6,8 @@ from urllib.parse import urljoin
 
 def parse_page_for_urls(books_on_page):
     soup = BeautifulSoup(books_on_page, 'lxml')
-    tables = soup.find_all('table', class_='d_book')
-    links_on_page = [table.find('tr').find('a')['href'] for table in tables]
+    tables = soup.select('table.d_book')
+    links_on_page = [table.select_one('tr a')['href'] for table in tables]
     return links_on_page
 
 
