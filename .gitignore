@@ -5,10 +5,10 @@ __pycache__/
 *.json
 # C extensions
 *.so
-*.txt
 # Distribution / packaging
 .Python
 build/
+books/
 develop-eggs/
 dist/
 downloads/
