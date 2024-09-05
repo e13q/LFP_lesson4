@@ -14,7 +14,7 @@ def valid_directory(path):
             return path
         else:
             raise argparse.ArgumentTypeError(f"Директория '{path}' не доступна для записи.")
-    except Exception as e:
+    except OSError as e:
         raise argparse.ArgumentTypeError(f"Невозможно создать директорию '{path}': {e}")
 
 
