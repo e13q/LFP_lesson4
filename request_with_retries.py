@@ -11,7 +11,7 @@ def check_for_redirect(response):
         raise requests.exceptions.TooManyRedirects
 
 
-def fetch_data(url, params=None, retries=3, delay=4):
+def request_with_retries(url, params=None, retries=3, delay=4):
     for attempt in range(retries):
         try:
             response = requests.get(url, params, timeout=10)
