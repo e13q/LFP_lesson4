@@ -23,8 +23,8 @@ def get_books_links_by_category(category, page_start, page_end=None):
         page_with_books = fetch_data(book_category_url)
         page_end = parse_page_for_pages_count(page_with_books.text)
     links = []
-    for i in range(page_start, page_end+1):
-        book_category_page_url = urljoin(book_category_url, f'{i}/')
+    for page_number in range(page_start, page_end+1):
+        book_category_page_url = urljoin(book_category_url, f'{page_number}/')
         page_with_books = fetch_data(book_category_page_url)
         links_on_page = parse_page_for_urls(page_with_books.text)
         links += links_on_page
