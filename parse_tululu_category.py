@@ -17,11 +17,16 @@ def parse_page_for_pages_count(books_on_page):
     return pages_count
 
 
-def get_books_links_by_category(category, page_start, page_end=None):
-    book_category_url = urljoin(BASE_URL, category)
+def check_page_end(book_category_url, page_end=None):
     if not page_end:
         page_with_books = fetch_data(book_category_url)
         page_end = parse_page_for_pages_count(page_with_books.text)
+    return page_end
+
+
+def get_books_links_by_category(category, page_start, page_end):
+    book_category_url = urljoin(BASE_URL, category)
+    check_page_end(book_category_url, page_end)
     links = []
     for page_number in range(page_start, page_end+1):
         book_category_page_url = urljoin(book_category_url, f'{page_number}/')
