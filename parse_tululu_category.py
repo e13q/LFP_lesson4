@@ -17,12 +17,11 @@ def parse_page_for_pages_count(books_on_page):
     return pages_count
 
 
-def check_page_end(category, page_end=None):
+def get_last_page_number(category):
     book_category_url = urljoin(BASE_URL, category)
-    if not page_end:
-        page_with_books = request_with_retries(book_category_url)
-        page_end = parse_page_for_pages_count(page_with_books.text)
-    return page_end
+    page_with_books = request_with_retries(book_category_url)
+    end_page = parse_page_for_pages_count(page_with_books.text)
+    return end_page
 
 
 def get_books_links_by_category(category, page_start, page_end):

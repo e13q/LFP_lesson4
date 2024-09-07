@@ -4,7 +4,10 @@ import os
 from tqdm.auto import tqdm
 
 from save_book import save_book, save_object
-from parse_tululu_category import get_books_links_by_category, check_page_end
+from parse_tululu_category import (
+    get_books_links_by_category,
+    get_last_page_number
+)
 
 
 def valid_directory(path):
@@ -60,7 +63,8 @@ def main():
     skip_txt = parser.skip_txt
     skip_imgs = parser.skip_imgs
     dest_folder = parser.dest_folder
-    end_page = check_page_end('/l55/', end_page)
+    if not end_page:
+        end_page = get_last_page_number('/l55/')
     links = get_books_links_by_category('/l55/', start_page, end_page)
     books_summary = []
     for book_page_link in tqdm(
