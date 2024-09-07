@@ -26,13 +26,13 @@ def request_with_retries(url, params=None, retries=3, delay=4):
                 time.sleep(delay)
             else:
                 tqdm.write('All attempts have been exhausted.')
-                return None
+                exit()
         except requests.exceptions.HTTPError as e:
             tqdm.write(f'HTTPerror {e}')
-            return None
+            exit()
         except requests.exceptions.TooManyRedirects:
             tqdm.write(f'Webpage for id {params.get('id')} has been moved')
-            return None
+            exit()
         except requests.RequestException as e:
             tqdm.write(f'Request exception: {e}')
-            return None
+            exit()
