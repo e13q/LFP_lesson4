@@ -58,7 +58,11 @@ def save_book(book_page_link, skip_txt, skip_imgs, dest_folder):
     (
         title, author, cover_path, comments, genres
     ) = parse_book_page(book_page)
-    cover = request_with_retries(urljoin(book_page_link, cover_path)).content
+    cover = request_with_retries(urljoin(book_page_link, cover_path))
+    if not cover:
+        return
+    else:
+        cover = cover.content
     _, img_ext = tuple(cover_path.split('.'))
 
     book_path = save_object(

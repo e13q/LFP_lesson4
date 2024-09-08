@@ -64,7 +64,7 @@ def main():
     skip_imgs = parser.skip_imgs
     dest_folder = parser.dest_folder
     if not end_page:
-        end_page = get_last_page_number('/l55/')
+        end_page = get_last_page_number('/l55/') or start_page
     links = get_books_links_by_category('/l55/', start_page, end_page)
     books_summary = []
     for book_page_link in tqdm(
